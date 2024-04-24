@@ -1,0 +1,5 @@
+// install dependencies 
+npm install
+
+// running project
+npm run dev

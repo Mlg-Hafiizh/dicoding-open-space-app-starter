@@ -101,6 +101,7 @@ const api = (() => {
     return users;
   }
 
+  // mendapatkan seluruh daftar talks.
   async function getAllTalks() {
     const response = await fetch(`${BASE_URL}/talks`);
 
@@ -133,6 +134,7 @@ const api = (() => {
     return talkDetail;
   }
 
+  // membuat talk atau balasan talk
   async function createTalk({ text, replyTo = '' }) {
     const response = await _fetchWithAuth(`${BASE_URL}/talks`, {
       method: 'POST',
@@ -158,6 +160,7 @@ const api = (() => {
     return talk;
   }
 
+  // menyukai atau batal menyukai talk
   async function toggleLikeTalk(id) {
     const response = await _fetchWithAuth(`${BASE_URL}/talks/likes`, {
       method: 'POST',
