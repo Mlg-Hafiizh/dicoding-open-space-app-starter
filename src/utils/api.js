@@ -6,6 +6,7 @@ const api = (() => {
       ...options,
       headers: {
         ...options.headers,
+        // eslint-disable-next-line no-use-before-define
         Authorization: `Bearer ${getAccessToken()}`,
       },
     });
