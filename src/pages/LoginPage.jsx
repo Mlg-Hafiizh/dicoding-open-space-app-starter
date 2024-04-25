@@ -1,15 +1,18 @@
 import React from 'react';
 import { IoEarthOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import LoginInput from '../components/LoginInput';
-
+import { asyncSetAuthUser } from '../states/authUser/action';
+ 
 function LoginPage() {
-  const dispatch = null; // @TODO: get dispatch function from store
-
+  const dispatch = useDispatch(); // @TODO: get dispatch function from store
+ 
   const onLogin = ({ id, password }) => {
     // @TODO: dispatch async action to login
+    dispatch(asyncSetAuthUser({ id, password }));
   };
-
+ 
   return (
     <section className="login-page">
       <header className="login-page__hero">
@@ -25,7 +28,7 @@ function LoginPage() {
           <br />
           Through Open Space.
         </h2>
-
+ 
         <LoginInput login={onLogin} />
         <p>
           Don&apos;t have an account?
@@ -36,5 +39,5 @@ function LoginPage() {
     </section>
   );
 }
-
+ 
 export default LoginPage;
