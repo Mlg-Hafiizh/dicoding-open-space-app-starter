@@ -9,19 +9,17 @@ import { receiveUsersActionCreator } from '../users/action';
 
 function asyncPopulateUsersAndTalks() {
   return async (dispatch) => {
+    dispatch(showLoading());
     try {
-      dispatch(showLoading());
-
       const users = await api.getAllUsers();
       const talks = await api.getAllTalks();
 
       dispatch(receiveUsersActionCreator(users));
       dispatch(receiveTalksActionCreator(talks));
-
-      dispatch(hideLoading());
     } catch (error) {
       alert(error.message);
     }
+    dispatch(hideLoading());
   };
 }
 
